@@ -1,10 +1,11 @@
 @import url(null.css);
 
+
 .wrap {
 	width: 100%;
 	height: 100vh;
-	position: relative;
-	overflow: hidden;
+	position: relative;	
+	
 }
 .decor-block {
 	position: fixed;
@@ -16,15 +17,25 @@
 .header {
 	position: fixed;
 	width: 100%;
-	top: 50px;
-	right: 0;
-	background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9));
+	top: 0px;
+	right: 0px;
+	color: #fff;
+	font-family: Arial;
 	z-index: 10;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+	background-color: #000;
 	opacity: 0;
 	animation: header 1.5s ease 1 normal 2s forwards;	
+}
+.logo {
+	opacity: 0;
+	animation: header 1.5s ease 1 normal 2s forwards;	
+}
+.slogan {
+	opacity: 0;
+	animation: header 1.5s ease 1 normal 4s forwards;	
 }
 
 @keyframes header {
@@ -45,26 +56,58 @@
 }
 .logo img {
 	border-radius: 43%;
-	padding: 5px 5px 5px 20px;
+	padding: 10px 20px 10px 20px;
 	max-width: 100%;
 }
 
 .video {
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 100vh;
   z-index: -10; 
 }
 
 
-.video_media {  
-   
+.video_media {    
   position: absolute;
   top: 0;
   left: 0;
   z-index: -10;  
 }
 
+
+
+.aside {
+	width: 30%;
+	position: absolute;
+	top: 230px;
+	left: 70%;
+	z-index: 5;
+}
+
+.performers {
+	display: flex;
+	justify-content: space-evenly;
+	
+}
+.performer {
+	width: 30%;	
+	color: #fff;
+	text-align: center;
+	padding-bottom: 20px;
+
+}
+
+.performer img {
+	max-width: 100%;	
+	border-radius: 50%;
+	border: 2px solid #fff;
+}
+.performer_name {
+	padding-top: 20px;
+	letter-spacing: 3px;
+	font-size: 24px;
+}
 
 
 
