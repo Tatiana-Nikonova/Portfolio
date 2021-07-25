@@ -1,12 +1,21 @@
 @import url(null.css);
 
+@font-face {
+	font-family: 'Conv_Kurale-Regular';
+	src: url('../fonts/Kurale-Regular.eot');
+	src: local('☺'), url('../fonts/Kurale-Regular.woff') format('woff'), url('../fonts/Kurale-Regular.ttf') format('truetype'), url('../fonts/Kurale-Regular.svg') format('svg'), url('../fonts/Kurale-Regular.otf') format('otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
 
 .wrap {
 	width: 100%;
 	height: 100vh;
-	position: relative;	
-	
+	position: relative;
+	font-size: 16px;	
 }
+
 .decor-block {
 	position: fixed;
 	width: 100%;
@@ -18,12 +27,14 @@
 	position: fixed;
 	width: 100%;
 	top: 0px;
-	right: 0px;
+	left: 0;
+	padding: 10px;
 	color: #fff;
-	font-family: Arial;
+	font-family: 'Conv_Kurale-Regular', serif;
+	font-size: 2rem;
 	z-index: 10;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	align-items: center;
 	background-color: #000;
 	opacity: 0;
@@ -35,28 +46,18 @@
 }
 .slogan {
 	opacity: 0;
-	animation: header 1.5s ease 1 normal 4s forwards;	
+	animation: header 1.5s ease 1 normal 3s forwards;	
+
 }
 
-@keyframes header {
-0%{
-	opacity: 0;
-  }
-100%{
-	opacity: 1;
-  }
-}
 
-.slogan {
-	font-family: verdana;
-	font-size: 40px;
-}
+
+
 .logo {
 
 }
 .logo img {
 	border-radius: 43%;
-	padding: 10px 20px 10px 20px;
 	max-width: 100%;
 }
 
@@ -78,34 +79,37 @@
 
 
 .aside {
-	width: 50%;
-	position: absolute;
+	width: 100%;
+	position: relative;
 	top: 200px;
-	left: 50%;
+	left: 0;
 	z-index: 5;
+	opacity: 0;
+	animation: avatar 1.5s ease 1 normal 4s forwards;
+}
+.aside::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.5);
+
 }
 
 .performers {
-	display: flex;
-	justify-content: space-evenly;	
-}
-.performer {
-	width: 30%;	
-	color: #fff;
-	text-align: center;
-	padding-bottom: 20px;
-
+	position: relative;
+	z-index: 10;
+	padding: 90px 0 200px 0;
+  margin-top: -72px;
 }
 
 .performer img {
 	max-width: 100%;	
 	border-radius: 50%;
 	border: 2px solid #fff;
-}
-.performer_name {
-	padding-top: 20px;
-	letter-spacing: 3px;
-	font-size: 24px;
 }
 
 .disk {
@@ -117,7 +121,9 @@
   font: 18px 'Times New Roman'; 
   text-transform: uppercase;
 }
-
+.disk:nth-child(n+2) {
+	margin-top: 200px;
+}
 .disk b {
   position: absolute;
   left: 50%; /* все буквы ставим в одну точку*/
@@ -146,7 +152,137 @@
 
 .empty-block {
 	position: relative;
-	z-index: 30;
-	width: 100%;
-	height: 600px;
+  top: 0px;
+  z-index: 30;
+  width: 100%;
+  height: 190px;
 }
+
+/*  slick-slider  */
+
+.slick-slider{}
+/* Слайдер запущен */
+.slick-slider.slick-initialized{}
+/* Слайдер с точками */
+.slick-slider.slick-dotted{}
+/* Ограничивающая оболочка */
+.slick-list {
+	overflow: hidden;
+}
+/* Лента слайдов */
+.slick-track{
+	display: flex;
+	align-items: flex-start;
+}
+/* Слайд */
+.slick-slide{}
+/* Слайд активный (показывается) */
+.slick-slide.slick-active{}
+/* Слайд основной */
+.slick-slide.slick-current{}
+/* Слайд по центру */
+.slick-slide.slick-center{}
+/* Клонированный слайд */
+.slick-slide.slick-cloned{}
+/* Стрелка */
+.slick-arrow{}
+/* Стрелка влево */
+.slick-arrow.slick-prev{}
+/* Стрелка вправо */
+.slick-arrow.slick-next{}
+/* Стрелка не активная */
+.slick-arrow.slick-disabled{}
+/* Точки (булиты) */
+.slick-dots{}
+.slick-dots li{}
+/* Активная точка */
+.slick-dots li.slick-active{}
+/* Элемент точки */
+.slick-dots li button{}
+
+.slider-container {
+	width: 100%;
+	height: 550px;
+	background-color: #000;
+}
+
+
+.slider .slick-arrow {
+	position: absolute;
+	top: 40%; 
+	z-index: 10;
+	font-size: 0;
+}
+.slider .slick-arrow::before {
+	content: "";
+	position: absolute;
+	top: -5px;
+	left: 0;
+	width: 40px;
+	height: 40px;	
+	border-radius: 50%;
+	padding: 8px 12px;
+	z-index: 8;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slider .slick-arrow.slick-prev {
+	left: 0;	
+}
+.slider .slick-arrow.slick-prev::before {
+	background: #fff url('../images/icon/arrow-prev.svg') center / 16px 24px no-repeat;
+}
+.slider .slick-arrow.slick-next {
+	right: 24px;
+}
+.slider .slick-arrow.slick-next::before {
+	background: #fff url('../images/icon/arrow-next.svg') center / 16px 24px no-repeat;
+}
+
+.slider__title {
+	color: #fff;
+	padding: 70px 10px 50px 10px;
+	font-family: 'Conv_Kurale-Regular', serif;
+	font-size: 2rem;
+	z-index: 10;
+}
+
+
+.slider__item {
+	width: 298px;
+	min-height: 400px;	
+	padding-left: 0;
+	margin-right: 39px;
+	margin-right: 15px;
+	background-color: #fff;
+}
+
+
+
+
+
+/*  slick-slider - end  */
+
+
+
+
+
+
+@keyframes header {
+0%{
+	opacity: 0;
+  }
+100%{
+	opacity: 1;
+  }
+}
+
+@keyframes avatar {
+0%{
+	opacity: 0;
+  }
+100%{
+	opacity: 1;
+  }
+}
+
